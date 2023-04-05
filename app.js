@@ -1,24 +1,24 @@
 const express = require('express');
+const path = require('path');
 
 const port =  process.env.PORT|| 3000;
 const app = express();
+
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine','ejs');
+
+app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'));
+
 
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 });
 
-app.get('/',(req, res)=>{
-    res.render('index.ejs')
-});
+app.get('/search',(req, res)=>{
 
-app.get('/demo',(req, res)=>{
-    res.render('demo.ejs')
-});
-
-app.get('/user/:id/:username',(req, res)=>{
-    const id = req.params.id;
-    const username = req.params.username;
-
-    res.render('index.ejs', {id, username})
+    res.render('search')
 })
+
+app.get('*',(req, res)=>{res.send('404. This page does not exist')})
 

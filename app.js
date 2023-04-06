@@ -18,6 +18,11 @@ app.listen(port,()=>{
 app.get('/search',(req, res)=>{
 
     res.render('search')
+});
+
+app.get('/results',(req, res)=>{
+
+    res.render('movies');
 })
 
 app.get('*',(req, res)=>{res.send('404. This page does not exist')})

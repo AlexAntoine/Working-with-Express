@@ -3,3 +3,5 @@
     <p><%= question['user']%></p>
     <p><%= question['votes']%></p>
 <% }) %>
+
+"https://image.tmdb.org/t/p/w600_and_h900_bestv2 <%=movie["poster_path"]%>
